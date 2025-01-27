@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class ProjectileBehaviourP : MonoBehaviour
     [SerializeField] float LifeTime = 5f;
     private float LifeTimeCounter = 0;
     [SerializeField] float SpinSpeed = 0f;
+    [SerializeField] Boolean Decay = false;
     void Start()
     {
         do
@@ -31,10 +33,13 @@ public class ProjectileBehaviourP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LifeTimeCounter += Time.deltaTime;
-        if (LifeTime <= LifeTimeCounter)
+        if (Decay == true)
         {
-            Destroy(gameObject);
+            LifeTimeCounter += Time.deltaTime;
+            if (LifeTime <= LifeTimeCounter)
+            {
+                Destroy(gameObject);
+            }
         }
         if (SpinSpeed != 0f)
         {
@@ -43,9 +48,10 @@ public class ProjectileBehaviourP : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Wall") || col.CompareTag("Enemy") || col.CompareTag("ProjetilE"))
+        if (col.CompareTag("Wall") || col.CompareTag("Ground"))
         {
-            Destroy(gameObject);
+            Decay = true;
+            //Destroy(gameObject);
         }
     }
 }
