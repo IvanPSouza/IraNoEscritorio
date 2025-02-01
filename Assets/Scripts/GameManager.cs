@@ -2,13 +2,14 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
 
     [SerializeField] GameObject playerPrefab;
-    [SerializeField] Transform playerSpawnerPosition;
+    [SerializeField] Transform[] points;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.Instantiate("Prefabs/" + playerPrefab.name, playerSpawnerPosition.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("Prefabs/" + playerPrefab.name, points[Random.Range(0, points.Length)].position, Quaternion.identity);
         }
 
     }
