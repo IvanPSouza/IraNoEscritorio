@@ -33,14 +33,14 @@ public class ProjectileBehaviourP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Decay == true)
-        {
+        //if (Decay == true)
+        //{
             LifeTimeCounter += Time.deltaTime;
             if (LifeTime <= LifeTimeCounter)
             {
                 Destroy(gameObject);
             }
-        }
+        //}
         if (SpinSpeed != 0f)
         {
             transform.Rotate(new Vector3(0, 0, SpinSpeed), Space.Self);
@@ -48,11 +48,13 @@ public class ProjectileBehaviourP : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Wall") || col.CompareTag("Ground"))
-        {
-            Decay = true;
-            //Destroy(gameObject);
-        }
+        //if (col.CompareTag("Wall") || col.CompareTag("Ground"))
+        //{
+        //    Decay = true;
+        //    //Destroy(gameObject);
+        //}
+
+        LifeTime = 0.1f;
     }
 }
 

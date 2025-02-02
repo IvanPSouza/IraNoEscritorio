@@ -11,8 +11,8 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 {
     #region Private Fields
 
-    public static GameObject Instance;
-    public static GameObject LocalPlayerInstance;
+    [SerializeField] static GameObject Instance;
+    [SerializeField] static GameObject LocalPlayerInstance;
     private Rigidbody2D _rb;
     private TMP_Text _namePlayer;
     [SerializeField] private float _jumpForce = 10f;
@@ -35,6 +35,15 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     #endregion
 
+    #region Vida
+
+    [Range(0f,100f)]
+    [SerializeField] float healthPoints = 100f;
+    private SpriteRenderer Color;
+    private new Color light;
+
+    #endregion
+
     private void Awake()
     {
         //if (Instance == null)
@@ -48,6 +57,8 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     {
         _rb = GetComponent<Rigidbody2D>();
         _namePlayer = GetComponentInChildren<TMP_Text>();
+        Color = GetComponent<SpriteRenderer>();
+        light = Color.color;
 
         if (photonView.IsMine)
         {
@@ -66,6 +77,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     {
         float moveH = Input.GetAxis("Horizontal");
         bool isJumpPressed = Input.GetButtonDown("Jump");
+        LifeIndicator();
 
         // Handle movement on the horizontal axis (2D)
         Movement = new Vector2(moveH * PlayerSpeed, _rb.velocity.y);
@@ -98,6 +110,19 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         {
             _isGrounded = true;
         }
+        if (collision.collider.CompareTag("Bullet1"))
+        {
+            healthPoints -= 10;
+            Debug.Log(healthPoints + " Vida total " + _nickname);
+            LifeIndicator();
+        }
+        if (collision.collider.CompareTag("Bullet2"))
+        {
+            healthPoints -= 25;
+            Debug.Log(healthPoints + " Vida total " + _nickname);
+            LifeIndicator();
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -107,6 +132,11 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         {
             _isGrounded = false;
         }
+    }
+
+    private void LifeIndicator()
+    {
+        Color.color = new Color(light.r, (1f * healthPoints)/100, (1f * healthPoints) / 100, light.a);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

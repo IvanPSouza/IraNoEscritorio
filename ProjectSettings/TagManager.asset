@@ -5,8 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Bullet
   - Wall
+  - Bullet1
+  - Bullet2
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Bullet
-  - 
+  - Plataform
   - 
   - 
   - 
