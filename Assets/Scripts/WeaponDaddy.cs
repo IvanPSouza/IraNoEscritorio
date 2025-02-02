@@ -1,59 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using Photon.Pun;
 
-public class WeaponDaddy : MonoBehaviour
+public class WeaponDaddy : MonoBehaviourPunCallbacks, IPunObservable
 {
-    // Adjust this value based on your object's design
+    public float offsetAngle = 0f; // Ajustar para a direção correta da mira
 
-    public float offsetAngle = 0f; // Adjust to rotate the object to face the correct direction
-
-
+    private float currentAngle;
 
     void Update()
-
     {
-
-        LookAtCursor();
-
+        if (photonView.IsMine)
+        {
+            LookAtCursor(); // Atualiza a mira apenas para o jogador local
+        }
+        else
+        {
+            SyncRotation(); // Sincroniza a rotação para os outros jogadores
+        }
     }
 
-
-
     void LookAtCursor()
-
     {
-
-        // Get the mouse position in world space
-
+        // Obtém a posição do mouse no mundo
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Ignora a profundidade, pois estamos em 2D
 
-        mousePosition.z = 0; // Set z to 0 to ignore depth
-
-
-
-        // Calculate the direction from the object to the mouse
-
+        // Calcula a direção do objeto até o mouse
         Vector3 direction = mousePosition - transform.position;
 
-
-
-        // Calculate the angle needed to rotate towards the mouse
-
+        // Calcula o ângulo necessário para rotacionar em direção ao mouse
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-
-
-        // Apply the offset angle if needed
-
+        // Aplica o ângulo de offset, se necessário
         angle += offsetAngle;
 
-
-
-        // Set the rotation of the object
-
+        // Atualiza a rotação do objeto
+        currentAngle = angle;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
 
+    // Sincroniza a rotação com os outros jogadores
+    void SyncRotation()
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentAngle));
+    }
+
+    // Método para enviar e receber a rotação através da rede
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // Envia a rotação para os outros jogadores
+            stream.SendNext(currentAngle);
+        }
+        else
+        {
+            // Recebe a rotação dos outros jogadores
+            currentAngle = (float)stream.ReceiveNext();
+            SyncRotation(); // Atualiza a rotação do jogador remoto
+        }
     }
 }
