@@ -108,7 +108,6 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
             transform.position = Vector3.Lerp(transform.position, networkPosition, Time.deltaTime * 10);
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if player is on the ground when colliding with the ground layer
@@ -116,31 +115,31 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         {
             _isGrounded = true;
         }
+
+        // Verifica a colisão com os projéteis
         if (collision.collider.CompareTag("Bullet1"))
         {
-            healthPoints -= 10;
-            Debug.Log(healthPoints + " Vida total " + _nickname);
-            LifeIndicator();
+            if (photonView.IsMine) // Apenas o jogador local pode alterar sua vida
+            {
+                healthPoints -= 10;
+                Debug.Log(healthPoints + " Vida total " + _nickname);
+                LifeIndicator();
+            }
         }
         if (collision.collider.CompareTag("Bullet2"))
         {
-            healthPoints -= 25;
-            Debug.Log(healthPoints + " Vida total " + _nickname);
-            LifeIndicator();
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Player is no longer grounded
-        if (collision.collider.CompareTag("Ground"))
-        {
-            _isGrounded = false;
+            if (photonView.IsMine) // Apenas o jogador local pode alterar sua vida
+            {
+                healthPoints -= 25;
+                Debug.Log(healthPoints + " Vida total " + _nickname);
+                LifeIndicator();
+            }
         }
     }
 
     private void LifeIndicator()
     {
+        // Atualiza a cor da vida do jogador local e remota
         Color.color = new Color(light.r, (1f * healthPoints) / 100, (1f * healthPoints) / 100, light.a);
     }
 
@@ -162,6 +161,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
             _isGrounded = (bool)stream.ReceiveNext();
             healthPoints = (float)stream.ReceiveNext(); // Atualizar a vida
 
+            // Se for o jogador local, atualize o nickname
             if (photonView.IsMine)
             {
                 _namePlayer.text = PhotonNetwork.LocalPlayer.NickName;
@@ -170,6 +170,9 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
             {
                 _namePlayer.text = _nickname;
             }
+
+            // Atualizar o indicador de vida (cor)
+            LifeIndicator();
         }
     }
 }
