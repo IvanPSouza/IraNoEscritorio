@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     #region Vida
 
-    [Range(0f,100f)]
+    [Range(0f, 100f)]
     [SerializeField] float healthPoints = 100f;
     private SpriteRenderer Color;
     private new Color light;
@@ -79,13 +79,19 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         bool isJumpPressed = Input.GetButtonDown("Jump");
         LifeIndicator();
 
-        // Handle movement on the horizontal axis (2D)
+        // Controle de movimento horizontal (2D)
         Movement = new Vector2(moveH * PlayerSpeed, _rb.velocity.y);
 
-        // Handle jump (only when grounded)
-        if (isJumpPressed && _isGrounded)
+        // Verificação do pulo (somente para o jogador local)
+        if (isJumpPressed && _isGrounded && photonView.IsMine)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, JumpForce);
+        }
+
+        // Para o jogador oponente, desabilitar o pulo (não faz nada se não for o jogador local)
+        if (!photonView.IsMine)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, 0); // Garantir que o jogador remoto não pule
         }
     }
 
@@ -93,12 +99,12 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
-            // Local player control
+            // Controle do movimento do jogador local
             _rb.velocity = new Vector2(Movement.x, _rb.velocity.y);
         }
         else
         {
-            // Network player control (smooth synchronization)
+            // Para o jogador remoto, apenas suavizar a posição, sem influenciar a física (pulo)
             transform.position = Vector3.Lerp(transform.position, networkPosition, Time.deltaTime * 10);
         }
     }
@@ -122,7 +128,6 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
             Debug.Log(healthPoints + " Vida total " + _nickname);
             LifeIndicator();
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -136,21 +141,26 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     private void LifeIndicator()
     {
-        Color.color = new Color(light.r, (1f * healthPoints)/100, (1f * healthPoints) / 100, light.a);
+        Color.color = new Color(light.r, (1f * healthPoints) / 100, (1f * healthPoints) / 100, light.a);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
+            // Enviar posição, nickname, grounded, e vida
             stream.SendNext(transform.position);
             stream.SendNext(_nickname);
             stream.SendNext(_isGrounded);
+            stream.SendNext(healthPoints); // Sincronizando vida
         }
         else
         {
+            // Receber dados
             networkPosition = (Vector3)stream.ReceiveNext();
             _nickname = (string)stream.ReceiveNext();
+            _isGrounded = (bool)stream.ReceiveNext();
+            healthPoints = (float)stream.ReceiveNext(); // Atualizar a vida
 
             if (photonView.IsMine)
             {

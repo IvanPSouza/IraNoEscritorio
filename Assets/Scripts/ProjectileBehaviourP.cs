@@ -12,7 +12,7 @@ public class ProjectileBehaviourP : MonoBehaviour
     [SerializeField] float LifeTime = 5f;
     private float LifeTimeCounter = 0;
     [SerializeField] float SpinSpeed = 0f;
-    [SerializeField] Boolean Decay = false;
+    //[SerializeField] Boolean Decay = false;
     void Start()
     {
         do
