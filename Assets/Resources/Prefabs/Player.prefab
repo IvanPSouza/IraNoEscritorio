@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7288033962141156551}
   - component: {fileID: 120515331462691553}
   - component: {fileID: 2142341544419809370}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Vector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,9 @@ GameObject:
   - component: {fileID: 3284163052932717515}
   - component: {fileID: 8376112208189050690}
   - component: {fileID: 6080053722793264899}
-  m_Layer: 3
+  - component: {fileID: 8069011864893296956}
+  - component: {fileID: 5734433374845525800}
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +175,45 @@ MonoBehaviour:
   BulletPosition: {fileID: 3284163052932717515}
   ShootTime1: 0.2
   ShootTime2: 0.5
+--- !u!114 &8069011864893296956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018253346964758984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 5734433374845525800}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5734433374845525800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018253346964758984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &3856130072552395536
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398046138959431706}
   - component: {fileID: 8582884712438458239}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

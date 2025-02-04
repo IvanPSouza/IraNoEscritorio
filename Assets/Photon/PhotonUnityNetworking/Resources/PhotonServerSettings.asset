@@ -41,6 +41,10 @@ MonoBehaviour:
   - RespawnSpaceship
   - ReceberMensagem
   - RecebeMensagem
+  - FireProjectile1
+  - FireProjectile2
+  - SyncProjectile
+  - SetDirection
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

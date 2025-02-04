@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Bullet1
   - Bullet2
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - Bullet
   - Plataform
-  - 
+  - Arm
   - 
   - 
   - 

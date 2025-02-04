@@ -1,14 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
-using UnityEditor;
-using UnityEngine.UIElements;
-using System.Reflection;
+using Photon.Pun;
 
-public class shooterP : MonoBehaviour
+public class shooterP : MonoBehaviourPunCallbacks
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     [SerializeField] GameObject Projectil1;
@@ -19,54 +15,75 @@ public class shooterP : MonoBehaviour
     [SerializeField] float ShootTime2 = 0.5f;
     private float ShootCounter2 = 0f;
     private int CurrentWeapon = 1;
+
     void Update()
     {
-        if (CurrentWeapon == 1)
+        // Apenas o jogador local pode controlar o disparo.
+        if (photonView.IsMine)
         {
-            shoot1();
+            if (CurrentWeapon == 1)
+            {
+                shoot1();
+            }
+            if (CurrentWeapon == 2)
+            {
+                shoot2();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                CurrentWeapon = 1;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                CurrentWeapon = 2;
+            }
         }
-        if (CurrentWeapon == 2)
-        {
-            shoot2();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CurrentWeapon = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            CurrentWeapon = 2;
-        }
+        // Se não for o jogador local, a lógica de disparo será tratada pelos RPCs.
     }
+
     private void shoot1()
     {
         ShootCounter1 += Time.deltaTime;
 
         if (ShootTime1 <= ShootCounter1)
-        {//Starts to trow projectile if L.click
-
+        {
+            // Lógica de disparo no botão esquerdo do mouse
             if (Input.GetMouseButton(0))
             {
-                Instantiate(Projectil1, BulletPosition.position, Quaternion.identity);
-
+                // Chama a função RPC para disparar o projétil em todos os jogadores
+                photonView.RPC("FireProjectile1", RpcTarget.All, BulletPosition.position);
                 ShootCounter1 = 0;
             }
         }
     }
+
     private void shoot2()
     {
         ShootCounter2 += Time.deltaTime;
 
         if (ShootTime2 <= ShootCounter2)
-        {//Starts to trow projectile if L.click
-
+        {
+            // Lógica de disparo no botão esquerdo do mouse
             if (Input.GetMouseButton(0))
             {
-                Instantiate(Projectil2, BulletPosition.position, Quaternion.identity);
-
+                // Chama a função RPC para disparar o projétil em todos os jogadores
+                photonView.RPC("FireProjectile2", RpcTarget.All, BulletPosition.position);
                 ShootCounter2 = 0;
             }
         }
     }
-}
 
+    // RPC que será chamada para disparar o projétil 1
+    [PunRPC]
+    private void FireProjectile1(Vector3 position)
+    {
+        Instantiate(Projectil1, position, Quaternion.identity);
+    }
+
+    // RPC que será chamada para disparar o projétil 2
+    [PunRPC]
+    private void FireProjectile2(Vector3 position)
+    {
+        Instantiate(Projectil2, position, Quaternion.identity);
+    }
+}
