@@ -13,7 +13,7 @@ public class WeaponDaddy : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (photonView.IsMine)
         {
-            LookAtSecondPlayer(); // Atualiza a mira para o segundo jogador mais próximo
+            LookAtMouse(); // Atualiza a mira para a posição do mouse
         }
         else
         {
@@ -21,56 +21,24 @@ public class WeaponDaddy : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-    void LookAtSecondPlayer()
+    void LookAtMouse()
     {
-        // Encontra todos os jogadores com a tag "Player"
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        if (players.Length > 1)
-        {
-            // Ordena os jogadores pela distância em relação ao jogador local
-            GameObject closestPlayer = null;
-            GameObject secondClosestPlayer = null;
-            float closestDistance = Mathf.Infinity;
-            float secondClosestDistance = Mathf.Infinity;
+        // Converte a posição do mouse para o mundo 3D
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = transform.position.z; // Garantir que a posição do mouse tenha a mesma profundidade do objeto
 
-            foreach (GameObject player in players)
-            {
-                // Ignora o jogador local
-                if (player == gameObject) continue;
+        // Calcula a direção para o mouse
+        Vector3 direction = mousePosition - transform.position;
 
-                float distance = Vector3.Distance(transform.position, player.transform.position);
+        // Calcula o ângulo necessário para rotacionar em direção ao mouse
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-                if (distance < closestDistance)
-                {
-                    secondClosestDistance = closestDistance;
-                    secondClosestPlayer = closestPlayer;
-                    closestDistance = distance;
-                    closestPlayer = player;
-                }
-                else if (distance < secondClosestDistance)
-                {
-                    secondClosestDistance = distance;
-                    secondClosestPlayer = player;
-                }
-            }
+        // Aplica o ângulo de offset, se necessário
+        angle += offsetAngle;
 
-            // Se houver um segundo jogador, a mira será direcionada para ele
-            if (secondClosestPlayer != null)
-            {
-                Vector3 targetPosition = secondClosestPlayer.transform.position;
-                Vector3 direction = targetPosition - transform.position;
-
-                // Calcula o ângulo necessário para rotacionar em direção ao segundo jogador
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-                // Aplica o ângulo de offset, se necessário
-                angle += offsetAngle;
-
-                // Atualiza a rotação do objeto
-                currentAngle = angle;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            }
-        }
+        // Atualiza a rotação do objeto
+        currentAngle = angle;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     // Sincroniza a rotação com os outros jogadores
@@ -95,4 +63,3 @@ public class WeaponDaddy : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 }
-

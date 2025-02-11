@@ -93,6 +93,10 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         {
             _rb.velocity = new Vector2(_rb.velocity.x, 0); // Garantir que o jogador remoto não pule
         }
+        if (healthPoints <= 0)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -131,6 +135,15 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
             if (photonView.IsMine) // Apenas o jogador local pode alterar sua vida
             {
                 healthPoints -= 25;
+                Debug.Log(healthPoints + " Vida total " + _nickname);
+                LifeIndicator();
+            }
+        }
+        if (collision.collider.CompareTag("Bullet3"))
+        {
+            if (photonView.IsMine) // Apenas o jogador local pode alterar sua vida
+            {
+                healthPoints -= 5;
                 Debug.Log(healthPoints + " Vida total " + _nickname);
                 LifeIndicator();
             }

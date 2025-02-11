@@ -45,6 +45,7 @@ MonoBehaviour:
   - FireProjectile2
   - SyncProjectile
   - SetDirection
+  - FireProjectile3
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

@@ -16,12 +16,12 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && pausado == 0)
+        if (Input.GetKeyDown(KeyCode.P) && pausado == 0)
         {
             pausado = 1;
             paused.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && pausado == 1)
+        else if (Input.GetKeyDown(KeyCode.P) && pausado == 1)
         {
             pausado = 0;
             paused.SetActive(false);
