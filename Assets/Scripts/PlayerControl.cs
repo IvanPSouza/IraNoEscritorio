@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     #region Vida
 
-    [Range(0f, 100f)]
+    //[Range(0f, 100f)]
     [SerializeField] float healthPoints = 100f;
     private SpriteRenderer Color;
     private new Color light;

@@ -565,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jumpForce: 10
   _playerSpeed: 10
-  healthPoints: 100
+  healthPoints: 500
 --- !u!114 &-5571827233558772696
 MonoBehaviour:
   m_ObjectHideFlags: 0
