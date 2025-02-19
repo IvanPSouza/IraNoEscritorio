@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 29b21698dc1d97a46ae1ad3968ddb776
+guid: f6ea40325e4bce94a8dea9b3c4cdecc3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OfficeGAW2_0
+      name: OfficeGAW3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 378610e99074ef8479185d96debacafd
-      internalID: -1466988688
+      spriteID: db81dbf00c72ab745b5047308b04b769
+      internalID: 1947985352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_1
+      name: OfficeGAW3_1
       rect:
         serializedVersion: 2
         x: 16
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b5f7ac1a800bef46af8aace0a9e686d
-      internalID: 1701809956
+      spriteID: 5de49ed270dd4744bb8f44bb660e2df7
+      internalID: 110776647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_2
+      name: OfficeGAW3_2
       rect:
         serializedVersion: 2
         x: 32
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee24a578f92d99f4f9ab256d4d954f2d
-      internalID: 50128950
+      spriteID: 978e35511ea8dc24aa0979d73a66e4eb
+      internalID: 1668131045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_3
+      name: OfficeGAW3_3
       rect:
         serializedVersion: 2
         x: 48
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5e043f7672c1da4c99945055a1253f9
-      internalID: -1540493607
+      spriteID: cdc1284ac7bae954ea5ce3506482f38d
+      internalID: -1327878688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_4
+      name: OfficeGAW3_4
       rect:
         serializedVersion: 2
         x: 64
@@ -234,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2998305c36598ba48b6241a84d7ec3b8
-      internalID: -1477237827
+      spriteID: 5747f01ab8084fb48acdde1b01902e7e
+      internalID: -729963198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_5
+      name: OfficeGAW3_5
       rect:
         serializedVersion: 2
         x: 80
@@ -255,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ac47d1c37bf44418afffd88f139ea4
-      internalID: -1184595856
+      spriteID: 113aadf7cc2270945a28769c9e2847d4
+      internalID: -2056406543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_6
+      name: OfficeGAW3_6
       rect:
         serializedVersion: 2
         x: 0
@@ -276,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5932372ddd44d954697e066e53fad8a8
-      internalID: 142963063
+      spriteID: b8de6f1b5ab57ee4f9010dece0a5435f
+      internalID: -235409641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_7
+      name: OfficeGAW3_7
       rect:
         serializedVersion: 2
         x: 16
@@ -297,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9497a93abf5f63f4cb1f438c8dac1b6e
-      internalID: -1938305382
+      spriteID: 9c8ce610d41d5734190838dc25d49825
+      internalID: -1206352217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_8
+      name: OfficeGAW3_8
       rect:
         serializedVersion: 2
         x: 32
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28c8ff3863a87f942b54a0e896b20098
-      internalID: 487552735
+      spriteID: 75dc1a0665b5a8d418394c1eddf6dda2
+      internalID: 2002981477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_9
+      name: OfficeGAW3_9
       rect:
         serializedVersion: 2
         x: 48
@@ -339,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3eb2896caf3d7fa45a888b4a2a2bb089
-      internalID: 404496494
+      spriteID: 1ab85c7fe48e33348ba7ba2f55c29045
+      internalID: 1293629030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_10
+      name: OfficeGAW3_10
       rect:
         serializedVersion: 2
         x: 64
@@ -360,14 +360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8961317549e4dd54b85a85fcd93cce62
-      internalID: 1531776598
+      spriteID: b9e3b3363052a3c41b01efb5aa7d1ab0
+      internalID: 1158285907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_11
+      name: OfficeGAW3_11
       rect:
         serializedVersion: 2
         x: 80
@@ -381,14 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cc6a8385e4cdb6479439bc86b76cb07
-      internalID: -1204876533
+      spriteID: 71d6a5106deb1b044a97658db385137c
+      internalID: 2049422306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_12
+      name: OfficeGAW3_12
       rect:
         serializedVersion: 2
         x: 0
@@ -402,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c7225179de855244809bae5f40850e8
-      internalID: 789424904
+      spriteID: 79e9fe7155e11c0408cdb9d0ed4f5ea7
+      internalID: 1635242352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_13
+      name: OfficeGAW3_13
       rect:
         serializedVersion: 2
         x: 16
@@ -423,14 +423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2e23621445518848b8a2e16539e1e9e
-      internalID: 65953813
+      spriteID: 603a777268fcacb489f67f084f8ec0ce
+      internalID: 1732777476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_14
+      name: OfficeGAW3_14
       rect:
         serializedVersion: 2
         x: 32
@@ -444,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 326a1859e90c75e46a608177767a3aed
-      internalID: 450795296
+      spriteID: c25c0d72a65fab54dad10e0f70aa5d84
+      internalID: 1751902928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_15
+      name: OfficeGAW3_15
       rect:
         serializedVersion: 2
         x: 48
@@ -465,14 +465,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c53c93b3694fe849ae29a3faf91b703
-      internalID: 1729165932
+      spriteID: 40fd6ee703675cc47b2eb3d66bcdb398
+      internalID: -1883666799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OfficeGAW2_16
+      name: OfficeGAW3_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faac6ba08fb532049a1e97acffad5171
+      internalID: -1252610431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeGAW3_17
       rect:
         serializedVersion: 2
         x: 80
@@ -486,8 +507,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e466332c8357dd14796fc176dd3e8607
-      internalID: -225755344
+      spriteID: 0060fd97edbd7e343a1115f8de934cdc
+      internalID: -876789044
       vertices: []
       indices: 
       edges: []
@@ -503,23 +524,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      OfficeGAW2_0: -1466988688
-      OfficeGAW2_1: 1701809956
-      OfficeGAW2_10: 1531776598
-      OfficeGAW2_11: -1204876533
-      OfficeGAW2_12: 789424904
-      OfficeGAW2_13: 65953813
-      OfficeGAW2_14: 450795296
-      OfficeGAW2_15: 1729165932
-      OfficeGAW2_16: -225755344
-      OfficeGAW2_2: 50128950
-      OfficeGAW2_3: -1540493607
-      OfficeGAW2_4: -1477237827
-      OfficeGAW2_5: -1184595856
-      OfficeGAW2_6: 142963063
-      OfficeGAW2_7: -1938305382
-      OfficeGAW2_8: 487552735
-      OfficeGAW2_9: 404496494
+      OfficeGAW3_0: 1947985352
+      OfficeGAW3_1: 110776647
+      OfficeGAW3_10: 1158285907
+      OfficeGAW3_11: 2049422306
+      OfficeGAW3_12: 1635242352
+      OfficeGAW3_13: 1732777476
+      OfficeGAW3_14: 1751902928
+      OfficeGAW3_15: -1883666799
+      OfficeGAW3_16: -1252610431
+      OfficeGAW3_17: -876789044
+      OfficeGAW3_2: 1668131045
+      OfficeGAW3_3: -1327878688
+      OfficeGAW3_4: -729963198
+      OfficeGAW3_5: -2056406543
+      OfficeGAW3_6: -235409641
+      OfficeGAW3_7: -1206352217
+      OfficeGAW3_8: 2002981477
+      OfficeGAW3_9: 1293629030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

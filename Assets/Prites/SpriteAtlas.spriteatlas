@@ -34,7 +34,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: 70400a67c56b9a64dadc7b0d13f8e2fe, type: 3}
     - {fileID: 2800000, guid: 6a3c032f34b6f5c43a8578bba9bac099, type: 3}
-    - {fileID: 2800000, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
+    - {fileID: 2800000, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -109,23 +109,24 @@ SpriteAtlas:
     - 70400a67c56b9a64dadc7b0d13f8e2fe: 421007633
     - 70400a67c56b9a64dadc7b0d13f8e2fe: 906647065
     - 70400a67c56b9a64dadc7b0d13f8e2fe: 1528942339
-    - 29b21698dc1d97a46ae1ad3968ddb776: -1184595856
-    - 29b21698dc1d97a46ae1ad3968ddb776: -1477237827
-    - 29b21698dc1d97a46ae1ad3968ddb776: -1938305382
-    - 29b21698dc1d97a46ae1ad3968ddb776: 142963063
-    - 29b21698dc1d97a46ae1ad3968ddb776: 1701809956
-    - 29b21698dc1d97a46ae1ad3968ddb776: -1466988688
-    - 29b21698dc1d97a46ae1ad3968ddb776: -1540493607
-    - 29b21698dc1d97a46ae1ad3968ddb776: 50128950
-    - 29b21698dc1d97a46ae1ad3968ddb776: 404496494
-    - 29b21698dc1d97a46ae1ad3968ddb776: 487552735
-    - 29b21698dc1d97a46ae1ad3968ddb776: 450795296
-    - 29b21698dc1d97a46ae1ad3968ddb776: 1729165932
-    - 29b21698dc1d97a46ae1ad3968ddb776: -225755344
-    - 29b21698dc1d97a46ae1ad3968ddb776: 1531776598
-    - 29b21698dc1d97a46ae1ad3968ddb776: -1204876533
-    - 29b21698dc1d97a46ae1ad3968ddb776: 789424904
-    - 29b21698dc1d97a46ae1ad3968ddb776: 65953813
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 241087239
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 1850243007
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -650991947
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -1556769384
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -1730592522
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 1919091808
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -2116375793
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 282711257
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -497128856
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 1966571803
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 1073706189
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -1410651357
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -2072588715
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 786922187
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -39338132
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 1095380403
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: 2068209821
+    - 53089a6cf81b1ef4da6f20cbe9a8af22: -2055488351
     - 6a3c032f34b6f5c43a8578bba9bac099: -900295184
     - 6a3c032f34b6f5c43a8578bba9bac099: 1905702999
     - 6a3c032f34b6f5c43a8578bba9bac099: 1386375133
@@ -215,23 +216,24 @@ SpriteAtlas:
   - {fileID: 421007633, guid: 70400a67c56b9a64dadc7b0d13f8e2fe, type: 3}
   - {fileID: 906647065, guid: 70400a67c56b9a64dadc7b0d13f8e2fe, type: 3}
   - {fileID: 1528942339, guid: 70400a67c56b9a64dadc7b0d13f8e2fe, type: 3}
-  - {fileID: -1184595856, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: -1477237827, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: -1938305382, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 142963063, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 1701809956, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: -1466988688, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: -1540493607, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 50128950, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 404496494, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 487552735, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 450795296, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 1729165932, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: -225755344, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 1531776598, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: -1204876533, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 789424904, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
-  - {fileID: 65953813, guid: 29b21698dc1d97a46ae1ad3968ddb776, type: 3}
+  - {fileID: 241087239, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 1850243007, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -650991947, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -1556769384, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -1730592522, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 1919091808, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -2116375793, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 282711257, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -497128856, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 1966571803, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 1073706189, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -1410651357, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -2072588715, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 786922187, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -39338132, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 1095380403, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: 2068209821, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
+  - {fileID: -2055488351, guid: 53089a6cf81b1ef4da6f20cbe9a8af22, type: 3}
   - {fileID: -900295184, guid: 6a3c032f34b6f5c43a8578bba9bac099, type: 3}
   - {fileID: 1905702999, guid: 6a3c032f34b6f5c43a8578bba9bac099, type: 3}
   - {fileID: 1386375133, guid: 6a3c032f34b6f5c43a8578bba9bac099, type: 3}
@@ -320,23 +322,24 @@ SpriteAtlas:
   - nature-paltformer-tileset-16x16_18
   - nature-paltformer-tileset-16x16_39
   - nature-paltformer-tileset-16x16_38
-  - OfficeGAW2_5
-  - OfficeGAW2_4
-  - OfficeGAW2_7
-  - OfficeGAW2_6
-  - OfficeGAW2_1
-  - OfficeGAW2_0
-  - OfficeGAW2_3
-  - OfficeGAW2_2
-  - OfficeGAW2_9
-  - OfficeGAW2_8
-  - OfficeGAW2_14
-  - OfficeGAW2_15
-  - OfficeGAW2_16
-  - OfficeGAW2_10
-  - OfficeGAW2_11
-  - OfficeGAW2_12
-  - OfficeGAW2_13
+  - OfficeGAW 1_6
+  - OfficeGAW 1_7
+  - OfficeGAW 1_4
+  - OfficeGAW 1_5
+  - OfficeGAW 1_2
+  - OfficeGAW 1_3
+  - OfficeGAW 1_0
+  - OfficeGAW 1_1
+  - OfficeGAW 1_8
+  - OfficeGAW 1_9
+  - OfficeGAW 1_15
+  - OfficeGAW 1_14
+  - OfficeGAW 1_17
+  - OfficeGAW 1_16
+  - OfficeGAW 1_11
+  - OfficeGAW 1_10
+  - OfficeGAW 1_13
+  - OfficeGAW 1_12
   - OfficeGAW_9
   - OfficeGAW_8
   - OfficeGAW_7
