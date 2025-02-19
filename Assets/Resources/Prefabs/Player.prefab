@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 6195829876685822739}
   - component: {fileID: -5571827233558772696}
   - component: {fileID: 3525031987968890571}
+  - component: {fileID: 1111877818480451212}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -566,6 +567,7 @@ MonoBehaviour:
   _jumpForce: 10
   _playerSpeed: 10
   healthPoints: 500
+  Lscene: Derrota
 --- !u!114 &-5571827233558772696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +608,20 @@ MonoBehaviour:
   m_SynchronizeRotation: 0
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1111877818480451212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157202294973466377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14a857def6b4c8a4dae9613b0f29a873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wscene: Vitoria
+  Lscene: Derrota
 --- !u!1 &8114478778824095149
 GameObject:
   m_ObjectHideFlags: 0

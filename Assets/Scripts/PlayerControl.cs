@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
@@ -41,6 +42,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] float healthPoints = 100f;
     private SpriteRenderer Color;
     private new Color light;
+    [SerializeField] string Lscene = "Derrota";
 
     #endregion
 
@@ -95,7 +97,9 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (healthPoints <= 0)
         {
+            PhotonNetwork.Disconnect();
             PhotonNetwork.Destroy(gameObject);
+            SceneManager.LoadScene(Lscene);
         }
     }
 
