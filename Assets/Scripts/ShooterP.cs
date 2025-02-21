@@ -7,16 +7,34 @@ using Photon.Pun;
 public class shooterP : MonoBehaviourPunCallbacks
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
+    #region projetil1
+
     [SerializeField] GameObject Projectil1;
-    [SerializeField] GameObject Projectil2;
-    [SerializeField] GameObject Projectil3;
-    [SerializeField] Transform BulletPosition;
     [SerializeField] float ShootTime1 = 0.2f;
     private float ShootCounter1 = 0f;
+    [SerializeField] float speed1 = 15f;
+
+    #endregion
+
+    #region projetil2
+
+    [SerializeField] GameObject Projectil2;
     [SerializeField] float ShootTime2 = 0.5f;
     private float ShootCounter2 = 0f;
+    [SerializeField] float speed2 = 15f;
+
+    #endregion
+
+    #region projetil3
+
+    [SerializeField] GameObject Projectil3;
     [SerializeField] float ShootTime3 = 1f;
     private float ShootCounter3 = 0f;
+    [SerializeField] float speed3 = 20f;
+
+    #endregion
+
+    [SerializeField] Transform BulletPosition;
     private int CurrentWeapon = 1;
 
     // Nova variável para o GameObject que será usado para determinar a direção
@@ -111,7 +129,7 @@ public class shooterP : MonoBehaviourPunCallbacks
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = proj.transform.right * 15f;  // Ajuste a velocidade do projétil conforme necessário
+            rb.velocity = proj.transform.right * speed1;  // Ajuste a velocidade do projétil conforme necessário
         }
     }
 
@@ -123,7 +141,7 @@ public class shooterP : MonoBehaviourPunCallbacks
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = proj.transform.right * 15f;  // Ajuste a velocidade do projétil conforme necessário
+            rb.velocity = proj.transform.right * speed2;  // Ajuste a velocidade do projétil conforme necessário
         }
     }
 
@@ -135,7 +153,7 @@ public class shooterP : MonoBehaviourPunCallbacks
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.velocity = proj.transform.right * 20f;  // Ajuste a velocidade do projétil conforme necessário
+            rb.velocity = proj.transform.right * speed3;  // Ajuste a velocidade do projétil conforme necessário
         }
     }
 }

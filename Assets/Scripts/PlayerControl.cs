@@ -40,6 +40,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     //[Range(0f, 100f)]
     [SerializeField] float healthPoints = 100f;
+    private float maxHealthPoints;
     private SpriteRenderer Color;
     private new Color light;
     [SerializeField] string Lscene = "Derrota";
@@ -48,6 +49,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Awake()
     {
+        maxHealthPoints = healthPoints;
         //if (Instance == null)
         //{
         //    Instance = this.gameObject;
@@ -164,7 +166,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     private void LifeIndicator()
     {
         // Atualiza a cor da vida do jogador local e remota
-        Color.color = new Color(light.r, (1f * healthPoints) / 100, (1f * healthPoints) / 100, light.a);
+        Color.color = new Color(light.r, (1f * healthPoints) / maxHealthPoints, (1f * healthPoints) / maxHealthPoints, light.a);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

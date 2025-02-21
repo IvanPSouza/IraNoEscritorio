@@ -171,12 +171,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectil1: {fileID: 699753853871401236, guid: daa42897cbfa0714cbceb116027b35c1, type: 3}
+  ShootTime1: 0.1
+  speed1: 15
   Projectil2: {fileID: 2396916993779284839, guid: ad64c1536655bd14a90549b7ffd185b4, type: 3}
-  Projectil3: {fileID: 2396916993779284839, guid: c3281382e01612a40b4de0612cbe99b6, type: 3}
-  BulletPosition: {fileID: 3284163052932717515}
-  ShootTime1: 0.2
   ShootTime2: 0.5
-  ShootTime3: 0.2
+  speed2: 15
+  Projectil3: {fileID: 2396916993779284839, guid: c3281382e01612a40b4de0612cbe99b6, type: 3}
+  ShootTime3: 0.1
+  speed3: 40
+  BulletPosition: {fileID: 3284163052932717515}
   DirectionTarget: {fileID: 136801752352824103}
 --- !u!114 &8069011864893296956
 MonoBehaviour:
