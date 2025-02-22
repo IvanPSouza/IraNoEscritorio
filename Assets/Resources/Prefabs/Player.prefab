@@ -171,12 +171,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Projectil1: {fileID: 699753853871401236, guid: daa42897cbfa0714cbceb116027b35c1, type: 3}
-  ShootTime1: 0.1
+  ShootTime1: 0.05
   speed1: 15
   spreed1: 20
   Projectil2: {fileID: 2396916993779284839, guid: ad64c1536655bd14a90549b7ffd185b4, type: 3}
   ShootTime2: 0.5
-  speed2: 20
+  speed2: 25
   spreed2: 0
   Projectil3: {fileID: 2396916993779284839, guid: c3281382e01612a40b4de0612cbe99b6, type: 3}
   ShootTime3: 0.1
