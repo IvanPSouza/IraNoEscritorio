@@ -13,6 +13,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     [SerializeField] float ShootTime1 = 0.2f;
     private float ShootCounter1 = 0f;
     [SerializeField] float speed1 = 15f;
+    [SerializeField] float spreed1 = 10f;
 
     #endregion
 
@@ -22,6 +23,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     [SerializeField] float ShootTime2 = 0.5f;
     private float ShootCounter2 = 0f;
     [SerializeField] float speed2 = 15f;
+    [SerializeField] float spreed2 = 0f;
 
     #endregion
 
@@ -31,6 +33,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     [SerializeField] float ShootTime3 = 1f;
     private float ShootCounter3 = 0f;
     [SerializeField] float speed3 = 20f;
+    [SerializeField] float spreed3 = 0f;
 
     #endregion
 
@@ -125,7 +128,9 @@ public class shooterP : MonoBehaviourPunCallbacks
     [PunRPC]
     private void FireProjectile1(Vector3 position, Quaternion direction)
     {
-        GameObject proj = Instantiate(Projectil1, position, direction);
+        float angleVariation = UnityEngine.Random.Range(-spreed1, spreed1);
+        Quaternion newDirection = direction * Quaternion.Euler(0, 0, angleVariation);
+        GameObject proj = Instantiate(Projectil1, position, newDirection);
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
@@ -137,7 +142,9 @@ public class shooterP : MonoBehaviourPunCallbacks
     [PunRPC]
     private void FireProjectile2(Vector3 position, Quaternion direction)
     {
-        GameObject proj = Instantiate(Projectil2, position, direction);
+        float angleVariation = UnityEngine.Random.Range(-spreed2, spreed2);
+        Quaternion newDirection = direction * Quaternion.Euler(0, 0, angleVariation);
+        GameObject proj = Instantiate(Projectil2, position, newDirection);
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
@@ -149,7 +156,9 @@ public class shooterP : MonoBehaviourPunCallbacks
     [PunRPC]
     private void FireProjectile3(Vector3 position, Quaternion direction)
     {
-        GameObject proj = Instantiate(Projectil3, position, direction);
+        float angleVariation = UnityEngine.Random.Range(-spreed3, spreed3);
+        Quaternion newDirection = direction * Quaternion.Euler(0, 0, angleVariation);
+        GameObject proj = Instantiate(Projectil3, position, newDirection);
         Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
