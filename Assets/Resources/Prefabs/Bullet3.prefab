@@ -208,4 +208,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 20
-  SpinSpeed: 1
+  SpinSpeed: 20

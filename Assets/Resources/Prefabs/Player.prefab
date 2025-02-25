@@ -182,6 +182,10 @@ MonoBehaviour:
   ShootTime3: 0.1
   speed3: 40
   spreed3: 5
+  Projectil4: {fileID: 2396916993779284839, guid: 69b8f6d573d1ef147aade6e34f8d97e4, type: 3}
+  ShootTime4: 1
+  speed4: 40
+  spreed4: 0
   BulletPosition: {fileID: 3284163052932717515}
   DirectionTarget: {fileID: 136801752352824103}
 --- !u!114 &8069011864893296956

@@ -37,6 +37,16 @@ public class shooterP : MonoBehaviourPunCallbacks
 
     #endregion
 
+    #region projetil3
+
+    [SerializeField] GameObject Projectil4;
+    [SerializeField] float ShootTime4 = 1f;
+    private float ShootCounter4 = 0f;
+    [SerializeField] float speed4 = 20f;
+    [SerializeField] float spreed4 = 0f;
+
+    #endregion
+
     [SerializeField] Transform BulletPosition;
     private int CurrentWeapon = 1;
 
@@ -60,6 +70,10 @@ public class shooterP : MonoBehaviourPunCallbacks
             {
                 shoot3();
             }
+            if (CurrentWeapon == 4)
+            {
+                shoot4();
+            }
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 CurrentWeapon = 1;
@@ -71,6 +85,10 @@ public class shooterP : MonoBehaviourPunCallbacks
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 CurrentWeapon = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                CurrentWeapon = 4;
             }
         }
         // Se não for o jogador local, a lógica de disparo será tratada pelos RPCs.
@@ -123,6 +141,21 @@ public class shooterP : MonoBehaviourPunCallbacks
             }
         }
     }
+    private void shoot4()
+    {
+        ShootCounter4 += Time.deltaTime;
+
+        if (ShootTime4 <= ShootCounter4)
+        {
+            // Lógica de disparo no botão esquerdo do mouse
+            if (Input.GetMouseButton(0))
+            {
+                // Chama a função RPC para disparar o projétil em todos os jogadores
+                photonView.RPC("FireProjectile4", RpcTarget.All, BulletPosition.position, DirectionTarget.transform.rotation);
+                ShootCounter4 = 0;
+            }
+        }
+    }
 
     // RPC que será chamada para disparar o projétil 1
     [PunRPC]
@@ -163,6 +196,18 @@ public class shooterP : MonoBehaviourPunCallbacks
         if (rb != null)
         {
             rb.velocity = proj.transform.right * speed3;  // Ajuste a velocidade do projétil conforme necessário
+        }
+    }
+    [PunRPC]
+    private void FireProjectile4(Vector3 position, Quaternion direction)
+    {
+        float angleVariation = UnityEngine.Random.Range(-spreed4, spreed4);
+        Quaternion newDirection = direction * Quaternion.Euler(0, 0, angleVariation);
+        GameObject proj = Instantiate(Projectil4, position, newDirection);
+        Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = proj.transform.right * speed4;  // Ajuste a velocidade do projétil conforme necessário
         }
     }
 }

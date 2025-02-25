@@ -154,6 +154,15 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
                 LifeIndicator();
             }
         }
+        if (collision.collider.CompareTag("Bullet4"))
+        {
+            if (photonView.IsMine) // Apenas o jogador local pode alterar sua vida
+            {
+                healthPoints -= 25;
+                Debug.Log(healthPoints + " Vida total " + _nickname);
+                LifeIndicator();
+            }
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

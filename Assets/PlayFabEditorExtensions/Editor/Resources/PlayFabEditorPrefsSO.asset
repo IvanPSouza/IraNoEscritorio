@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0199c11aa6f514784c5c69cd8378d8, type: 3}
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
-  DevAccountEmail: ivan.psouza@al.infnet.edu.br
-  DevAccountToken: u398o4ooq9ct49hx9kjpw5gafr4z4gt4keeup9fiypdazatozrr57j4fefjhwxdpkgsst8fencikp8xpcn7m6oec57a6n6ga9m6juxi18uqf3txky5mjt9howniaqraz3me86cbabb5egbmy3wfnmojx7kdrftxn7gkai3z9hnf9jtkhqsacgpnjx8sq64u9crjhjytg
-  SelectedStudio: 
   SdkPath: 
   EdExPath: 
-  LocalCloudScriptPath: 
-  PanelIsShown: 1
+  PanelIsShown: 0
   curMainMenuIdx: 0
   curSubMenuIdx: 0

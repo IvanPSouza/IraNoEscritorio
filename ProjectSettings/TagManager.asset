@@ -10,6 +10,7 @@ TagManager:
   - Bullet2
   - Bullet
   - Bullet3
+  - Bullet4
   layers:
   - Default
   - TransparentFX

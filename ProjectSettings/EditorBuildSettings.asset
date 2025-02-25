@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/NonOnlineMenu.unity
     guid: cf5cc68b293ae5345b7100bd3ae4d900
   - enabled: 1
-    path: Assets/Scenes/Carregamento.unity
+    path: Assets/Scenes/Carregamento1.unity
     guid: e9b00ba96bfc8014788ad42ae52a8432
+  - enabled: 1
+    path: Assets/Scenes/Carregamento2.unity
+    guid: 2d1310391429b3f41a95a99b8e5b46ac
   - enabled: 1
     path: Assets/Scenes/CreateGame.unity
     guid: 1007a62b02d2daa49b22961c0196e65b
