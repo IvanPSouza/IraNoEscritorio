@@ -48,7 +48,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     #endregion
 
     [SerializeField] Transform BulletPosition;
-    private int CurrentWeapon = 1;
+    public int CurrentWeapon = 1;
 
     // Nova variável para o GameObject que será usado para determinar a direção
     [SerializeField] GameObject DirectionTarget;

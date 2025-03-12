@@ -47,6 +47,11 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
 
     #endregion
 
+    #region arma
+
+    [SerializeField] shooterP arma;
+
+    #endregion
     private void Awake()
     {
         maxHealthPoints = healthPoints;
@@ -74,6 +79,13 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         {
             _namePlayer.text = _nickname;
         }
+    }
+
+    public void PegaArma(int weaponType)
+    {
+        //rotina de pegar a arma
+
+        arma.CurrentWeapon = weaponType;
     }
 
     // Update is called once per frame

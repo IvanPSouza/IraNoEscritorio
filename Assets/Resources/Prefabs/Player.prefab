@@ -187,6 +187,7 @@ MonoBehaviour:
   speed4: 40
   spreed4: 0
   BulletPosition: {fileID: 3284163052932717515}
+  CurrentWeapon: 1
   DirectionTarget: {fileID: 136801752352824103}
 --- !u!114 &8069011864893296956
 MonoBehaviour:
@@ -578,6 +579,7 @@ MonoBehaviour:
   _playerSpeed: 10
   healthPoints: 500
   Lscene: Derrota
+  arma: {fileID: 6080053722793264899}
 --- !u!114 &-5571827233558772696
 MonoBehaviour:
   m_ObjectHideFlags: 0
