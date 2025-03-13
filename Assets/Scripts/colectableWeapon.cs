@@ -7,7 +7,6 @@ using UnityEngine;
 public class colectableWeapon : MonoBehaviour
 {
     [SerializeField] float unusableTime = 1;
-    [SerializeField] float timeToReact = 1;
     [SerializeField] Boolean colectable = false;
     [SerializeField] Boolean beenCollected = false;
     [SerializeField] int weaponType = 1;

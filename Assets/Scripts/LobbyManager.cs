@@ -1,8 +1,7 @@
-using Photon.Pun;
-using Photon.Realtime;
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private List<GameObject> _playersPanels;
     [SerializeField] private TMP_Text _textPlayerCount;
+    [SerializeField] private TMP_Text _pingText;
     int _playersCount;
 
 
@@ -21,6 +21,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         ChecaJogadores();
+
+        _pingText.text = PhotonNetwork.GetPing().ToString() + "ms";
     }
 
     private void ChecaJogadores()

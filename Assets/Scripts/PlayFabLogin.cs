@@ -14,10 +14,12 @@ public class PlayFabLogin : MonoBehaviour
 
     public static string PlayFabID;
     public string Nickname;
+    public string EntityID;
+    public string EntityType;
 
     public TMP_Text statusText;
 
-    public string userEmail;
+    public string usernameOrEmail;
     public string userPassword;
     public string username;
 
@@ -32,13 +34,14 @@ public class PlayFabLogin : MonoBehaviour
 
     public GameObject loginPanel;
 
-    public CarregamentoEConecao loadManager;
+    public CarregamentoEConexao loadManager;
 
     public static PlayFabLogin PFL;
 
     private void Awake()
     {
-        if (PFL  != null && PFL != this)
+        // singleton
+        if (PFL != null && PFL != this)
         {
             Destroy(PFL);
         }
@@ -58,12 +61,26 @@ public class PlayFabLogin : MonoBehaviour
         else
         {
             // credenciais para autenticação
-            userEmail = inputUserEmailLogin.text;
+            usernameOrEmail = inputUserEmailLogin.text;
             userPassword = inputUserPasswordLogin.text;
-            //payload de requisição
-            var request = new LoginWithEmailAddressRequest { Email = userEmail, Password = userPassword };
-            // Requisição
-            PlayFabClientAPI.LoginWithEmailAddress(request, SucessoLogin, FalhaLogin);
+
+            if (usernameOrEmail.Contains("@"))
+            {
+                //payload de requisição
+                var requestEmail = new LoginWithEmailAddressRequest { Email = usernameOrEmail, Password = userPassword };
+
+                // Requisição
+                PlayFabClientAPI.LoginWithEmailAddress(requestEmail, SucessoLogin, FalhaLogin);
+            }
+            else
+            {
+                //payload de requisição
+                var requestUsername = new LoginWithPlayFabRequest { Username = usernameOrEmail, Password = userPassword };
+
+                // Requisição
+                PlayFabClientAPI.LoginWithPlayFab(requestUsername, SucessoLogin, FalhaLogin);
+
+            }
         }
     }
 
@@ -77,29 +94,55 @@ public class PlayFabLogin : MonoBehaviour
         else
         {
             username = inputUsername.text;
-            userEmail = inputEmail.text;
+            usernameOrEmail = inputEmail.text;
             userPassword = inputPassword.text;
 
             // payload da requisição
-            var request = new RegisterPlayFabUserRequest { Email = userEmail, Password = userPassword, Username = username };
+            var request = new RegisterPlayFabUserRequest { Email = usernameOrEmail, Password = userPassword, Username = username };
+
             // Requisição
             PlayFabClientAPI.RegisterPlayFabUser(request, SucessoCriarConta, FalhaCriarConta);
         }
     }
 
-    public void SucessoLogin(LoginResult resulto)
+    public void SucessoLogin(LoginResult result)
     {
+        // captura o playfabID
+        PlayFabID = result.PlayFabId;
+
+        // Mensagens de status
         Debug.Log("Login foi feito com sucesso!");
         statusText.text = "Login foi feito com sucesso!";
+
+        // desabilita o painel de login
         loginPanel.SetActive(false);
+
+        // captura do nickname
+        PegaDisplayName(PlayFabID);
+
+        if (result.EntityToken != null && result.EntityToken.Entity != null)
+        {
+            EntityID = result.EntityToken.Entity.Id;
+            EntityType = result.EntityToken.Entity.Type;
+
+            Debug.Log($"EntityID: {EntityID}, EntityType: {EntityType}");
+        }
+        else
+        {
+            Debug.LogWarning("O LoginResult não retornou EntityToken. Talvez seja preciso chamar GetEntityToken separadamente.");
+        }
+
+        // carrega nova cena e conecta no photon
         loadManager.Connect();
     }
 
     public void FalhaLogin(PlayFabError error)
     {
+        // Mensagem de status
         Debug.Log("Não foi possível fazer login!");
         statusText.text = "Não foi possível fazer login!";
 
+        // tratamento de erros
         switch (error.Error)
         {
             case PlayFabErrorCode.AccountNotFound:
@@ -117,9 +160,11 @@ public class PlayFabLogin : MonoBehaviour
 
     public void FalhaCriarConta(PlayFabError error)
     {
+        // Mensagem de status
         Debug.Log("Falhou a tentativa de criar uma conta nova");
         statusText.text = "Falhou a tentativa de criar uma conta nova";
 
+        // tratamento de erros
         switch (error.Error)
         {
             case PlayFabErrorCode.InvalidEmailAddress:
@@ -140,10 +185,64 @@ public class PlayFabLogin : MonoBehaviour
 
     public void SucessoCriarConta(RegisterPlayFabUserResult result)
     {
+        // Mensagem de status
         Debug.Log("Sucesso ao criar uma conta nova!");
         statusText.text = "Sucesso ao criar uma conta nova!";
     }
 
     #endregion
 
+    public void PegaDadosJogador(string id)
+    {
+        // requisição para pegar dados do jogador
+        PlayFabClientAPI.GetUserData(new GetUserDataRequest()
+        {
+            PlayFabId = PlayFabID,
+            Keys = null
+        }, result => {
+
+            if (result.Data == null || !result.Data.ContainsKey(id))
+            {
+                Debug.Log("Conteúdo vazio!");
+            }
+
+            else if (result.Data.ContainsKey(id))
+            {
+                PlayerPrefs.SetString(id, result.Data[id].Value);
+            }
+
+        }, (error) => {
+            Debug.Log(error.GenerateErrorReport());
+        });
+    }
+
+    public void SalvaDadosJogador(string id, string valor)
+    {
+        PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest()
+        {
+            Data = new Dictionary<string, string>() {
+                {id, valor}
+            }
+        },
+        result => Debug.Log("Dados do jogador atualizados com sucesso!"),
+        error => {
+            Debug.Log(error.GenerateErrorReport());
+        });
+    }
+
+    public void PegaDisplayName(string playFabId)
+    {
+        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest()
+        {
+            PlayFabId = playFabId,
+            ProfileConstraints = new PlayerProfileViewConstraints()
+            {
+                ShowDisplayName = true
+            }
+        },
+        result => {
+            Nickname = result.PlayerProfile.DisplayName;
+        },
+        error => Debug.Log(error.ErrorMessage));
+    }
 }
