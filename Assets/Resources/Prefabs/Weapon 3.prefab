@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unusableTime: 1
-  timeToReact: 1
   colectable: 0
   beenCollected: 0
   weaponType: 3
