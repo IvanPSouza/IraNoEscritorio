@@ -37,7 +37,7 @@ public class shooterP : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region projetil3
+    #region projetil4
 
     [SerializeField] GameObject Projectil4;
     [SerializeField] float ShootTime4 = 1f;
@@ -48,7 +48,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     #endregion
 
     [SerializeField] Transform BulletPosition;
-    public int CurrentWeapon = 1;
+    public int CurrentWeapon = 3;
 
     // Nova variável para o GameObject que será usado para determinar a direção
     [SerializeField] GameObject DirectionTarget;
@@ -74,22 +74,22 @@ public class shooterP : MonoBehaviourPunCallbacks
             {
                 shoot4();
             }
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                CurrentWeapon = 1;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                CurrentWeapon = 2;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                CurrentWeapon = 3;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                CurrentWeapon = 4;
-            }
+            //if (Input.GetKeyDown(KeyCode.Alpha1))
+            //{
+            //    CurrentWeapon = 1;
+            //}
+            //if (Input.GetKeyDown(KeyCode.Alpha2))
+            //{
+            //    CurrentWeapon = 2;
+            //}
+            //if (Input.GetKeyDown(KeyCode.Alpha3))
+            //{
+            //    CurrentWeapon = 3;
+            //}
+            //if (Input.GetKeyDown(KeyCode.Alpha4))
+            //{
+            //    CurrentWeapon = 4;
+            //}
         }
         // Se não for o jogador local, a lógica de disparo será tratada pelos RPCs.
     }

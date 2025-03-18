@@ -41,8 +41,10 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     //[Range(0f, 100f)]
     [SerializeField] float healthPoints = 100f;
     private float maxHealthPoints;
-    private SpriteRenderer Color;
-    private new Color light;
+    [SerializeField] SpriteRenderer Color1;
+    [SerializeField] SpriteRenderer Color2;
+    private new Color light1;
+    private new Color light2;
     [SerializeField] string Lscene = "Derrota";
 
     #endregion
@@ -66,8 +68,9 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     {
         _rb = GetComponent<Rigidbody2D>();
         _namePlayer = GetComponentInChildren<TMP_Text>();
-        Color = GetComponent<SpriteRenderer>();
-        light = Color.color;
+        //Color = GetComponent<SpriteRenderer>();
+        light1 = Color1.color;
+        light2 = Color2.color;
 
         if (photonView.IsMine)
         {
@@ -111,7 +114,8 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
         }
         if (healthPoints <= 0)
         {
-            PhotonNetwork.Disconnect();
+            //PhotonNetwork.Disconnect();
+            PhotonNetwork.LeaveRoom();
             PhotonNetwork.Destroy(gameObject);
             SceneManager.LoadScene(Lscene);
         }
@@ -187,7 +191,8 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     private void LifeIndicator()
     {
         // Atualiza a cor da vida do jogador local e remota
-        Color.color = new Color(light.r, (1f * healthPoints) / maxHealthPoints, (1f * healthPoints) / maxHealthPoints, light.a);
+        Color1.color = new Color(light1.r, (1f * healthPoints) / maxHealthPoints, (1f * healthPoints) / maxHealthPoints, light1.a);
+        Color2.color = new Color(light2.r, (1f * healthPoints) / maxHealthPoints, (1f * healthPoints) / maxHealthPoints, light2.a);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

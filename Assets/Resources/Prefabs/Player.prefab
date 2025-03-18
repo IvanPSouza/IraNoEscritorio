@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+  m_Color: {r: 0.9921569, g: 0.854902, b: 0.78823537, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   speed4: 40
   spreed4: 0
   BulletPosition: {fileID: 3284163052932717515}
-  CurrentWeapon: 1
+  CurrentWeapon: 3
   DirectionTarget: {fileID: 136801752352824103}
 --- !u!114 &8069011864893296956
 MonoBehaviour:
@@ -581,6 +581,8 @@ MonoBehaviour:
   _jumpForce: 10
   _playerSpeed: 10
   healthPoints: 500
+  Color1: {fileID: 5884581468195240099}
+  Color2: {fileID: 8793174487427268484}
   Lscene: Derrota
   arma: {fileID: 6080053722793264899}
 --- !u!114 &-5571827233558772696
@@ -810,7 +812,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

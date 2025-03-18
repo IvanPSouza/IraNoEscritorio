@@ -109,14 +109,16 @@ public class TESTETESTE : MonoBehaviourPunCallbacks
                 // Exibir tela de vitória ou realizar alguma ação
                 Debug.Log("VOCÊ VENCEU!");
                 SceneManager.LoadScene(Wscene);
-                PhotonNetwork.Disconnect();
+                //PhotonNetwork.Disconnect();
+                PhotonNetwork.LeaveRoom();
             }
             else
             {
                 // Exibir tela de derrota
                 Debug.Log("Você perdeu. O vencedor foi " + winnerActor);
                 SceneManager.LoadScene(Lscene);
-                PhotonNetwork.Disconnect();
+                //PhotonNetwork.Disconnect();
+                PhotonNetwork.LeaveRoom();
             }
 
             // Poderíamos também forçar todos a voltarem ao menu ou trocar de cena
