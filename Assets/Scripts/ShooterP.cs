@@ -14,6 +14,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     private float ShootCounter1 = 0f;
     [SerializeField] float speed1 = 15f;
     [SerializeField] float spreed1 = 10f;
+    [SerializeField] GameObject Arma1;
 
     #endregion
 
@@ -24,6 +25,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     private float ShootCounter2 = 0f;
     [SerializeField] float speed2 = 15f;
     [SerializeField] float spreed2 = 0f;
+    [SerializeField] GameObject Arma2;
 
     #endregion
 
@@ -34,6 +36,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     private float ShootCounter3 = 0f;
     [SerializeField] float speed3 = 20f;
     [SerializeField] float spreed3 = 0f;
+    [SerializeField] GameObject Arma3;
 
     #endregion
 
@@ -44,6 +47,7 @@ public class shooterP : MonoBehaviourPunCallbacks
     private float ShootCounter4 = 0f;
     [SerializeField] float speed4 = 20f;
     [SerializeField] float spreed4 = 0f;
+    [SerializeField] GameObject Arma4;
 
     #endregion
 
@@ -61,18 +65,34 @@ public class shooterP : MonoBehaviourPunCallbacks
             if (CurrentWeapon == 1)
             {
                 shoot1();
+                Arma1.SetActive(false);
+                Arma2.SetActive(false);
+                Arma3.SetActive(false);
+                Arma4.SetActive(false);
             }
             if (CurrentWeapon == 2)
             {
                 shoot2();
+                Arma1.SetActive(false);
+                Arma2.SetActive(true);
+                Arma3.SetActive(false);
+                Arma4.SetActive(false);
             }
             if (CurrentWeapon == 3)
             {
                 shoot3();
+                Arma1.SetActive(false);
+                Arma2.SetActive(false);
+                Arma3.SetActive(true);
+                Arma4.SetActive(false);
             }
             if (CurrentWeapon == 4)
             {
                 shoot4();
+                Arma1.SetActive(false);
+                Arma2.SetActive(false);
+                Arma3.SetActive(false);
+                Arma4.SetActive(true);
             }
             //if (Input.GetKeyDown(KeyCode.Alpha1))
             //{
