@@ -65,34 +65,18 @@ public class shooterP : MonoBehaviourPunCallbacks
             if (CurrentWeapon == 1)
             {
                 shoot1();
-                Arma1.SetActive(false);
-                Arma2.SetActive(false);
-                Arma3.SetActive(false);
-                Arma4.SetActive(false);
             }
             if (CurrentWeapon == 2)
             {
                 shoot2();
-                Arma1.SetActive(false);
-                Arma2.SetActive(true);
-                Arma3.SetActive(false);
-                Arma4.SetActive(false);
             }
             if (CurrentWeapon == 3)
             {
                 shoot3();
-                Arma1.SetActive(false);
-                Arma2.SetActive(false);
-                Arma3.SetActive(true);
-                Arma4.SetActive(false);
             }
             if (CurrentWeapon == 4)
             {
                 shoot4();
-                Arma1.SetActive(false);
-                Arma2.SetActive(false);
-                Arma3.SetActive(false);
-                Arma4.SetActive(true);
             }
             //if (Input.GetKeyDown(KeyCode.Alpha1))
             //{
@@ -110,6 +94,34 @@ public class shooterP : MonoBehaviourPunCallbacks
             //{
             //    CurrentWeapon = 4;
             //}
+        }
+        if (CurrentWeapon == 1)
+        {
+            Arma1.SetActive(true);
+            Arma2.SetActive(false);
+            Arma3.SetActive(false);
+            Arma4.SetActive(false);
+        }
+        if (CurrentWeapon == 2)
+        {
+            Arma1.SetActive(false);
+            Arma2.SetActive(true);
+            Arma3.SetActive(false);
+            Arma4.SetActive(false);
+        }
+        if (CurrentWeapon == 3)
+        {
+            Arma1.SetActive(false);
+            Arma2.SetActive(false);
+            Arma3.SetActive(true);
+            Arma4.SetActive(false);
+        }
+        if (CurrentWeapon == 4)
+        {;
+            Arma1.SetActive(false);
+            Arma2.SetActive(false);
+            Arma3.SetActive(false);
+            Arma4.SetActive(true);
         }
         // Se não for o jogador local, a lógica de disparo será tratada pelos RPCs.
     }

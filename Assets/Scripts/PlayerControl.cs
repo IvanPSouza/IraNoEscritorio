@@ -43,8 +43,8 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     private float maxHealthPoints;
     [SerializeField] SpriteRenderer Color1;
     [SerializeField] SpriteRenderer Color2;
-    private new Color light1;
-    private new Color light2;
+    private Color light1;
+    private Color light2;
     [SerializeField] string Lscene = "Derrota";
 
     #endregion
@@ -137,7 +137,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if player is on the ground when colliding with the ground layer
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("OneWayPlatform"))
         {
             _isGrounded = true;
         }
@@ -182,7 +182,7 @@ public class PlayerControl : MonoBehaviourPunCallbacks, IPunObservable
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("OneWayPlatform"))
         {
             _isGrounded = false;
         }
