@@ -3901,6 +3901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1263870051}
   - component: {fileID: 1263870052}
+  - component: {fileID: 1263870053}
   m_Layer: 0
   m_Name: Playfab
   m_TagString: Untagged
@@ -3949,6 +3950,21 @@ MonoBehaviour:
   inputPassword: {fileID: 752401186}
   loginPanel: {fileID: 1744181587}
   loadManager: {fileID: 348321465}
+--- !u!114 &1263870053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263870049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717e412b7320a024eb95432328a19dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _LBTransform: {fileID: 0}
+  _LBRow: {fileID: 0}
+  _LBEntries: []
 --- !u!1 &1273078673
 GameObject:
   m_ObjectHideFlags: 0
