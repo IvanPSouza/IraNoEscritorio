@@ -64,7 +64,7 @@ public class PlayFabLeaderboard : MonoBehaviour
                 new StatisticUpdate
                 {
                     StatisticName = "vitorias",
-                    Value = UnityEngine.Random.Range( 0, 100 )
+                    Value = 1
                 }
             }
         };
