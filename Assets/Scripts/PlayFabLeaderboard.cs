@@ -4,6 +4,7 @@ using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayFabLeaderboard : MonoBehaviour
 {
@@ -11,11 +12,27 @@ public class PlayFabLeaderboard : MonoBehaviour
     public GameObject _LBRow;
     public GameObject[] _LBEntries;
 
+    private void Update()
+    {
+        // Verifica se a cena atual é "create game" e busca o objeto "tabela"
+        if (SceneManager.GetActiveScene().name == "create game")
+        {
+            GameObject tabelaObj = GameObject.Find("tabela");
+            if (tabelaObj != null)
+            {
+                _LBTransform = tabelaObj.transform;
+            }
+            else
+            {
+                Debug.LogWarning("[PlayFabLeaderboard] Objeto 'tabela' não encontrado na cena 'create game'.");
+            }
+        }
+    }
     public void RecuperarLeaderboard()
     {
         GetLeaderboardRequest request = new GetLeaderboardRequest
         {
-            StartPosition = 0,
+            StartPosition = 1,
             StatisticName = "vitorias",
             MaxResultsCount = 10
         };
