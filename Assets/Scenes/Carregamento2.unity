@@ -3963,7 +3963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _LBTransform: {fileID: 0}
-  _LBRow: {fileID: 0}
+  _LBRow: {fileID: 8036144223327190243, guid: 2da0fc5e1bc7c49488b9eab0cdeea463, type: 3}
   _LBEntries: []
 --- !u!1 &1273078673
 GameObject:
@@ -6024,7 +6024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.5835624, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
