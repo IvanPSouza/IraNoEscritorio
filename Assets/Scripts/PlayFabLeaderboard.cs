@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using PlayFab;
 using PlayFab.ClientModels;
+using System;
 
 public class PlayFabLeaderboard : MonoBehaviour
 {
@@ -25,11 +26,14 @@ public class PlayFabLeaderboard : MonoBehaviour
             {
 
                 // TODO: limpar a tabela antes de fazer a rotinha de mostrar os novos resultados
-
                 // fazer um laço para destruir os registros, SE HOUVER registros
-
+                for (int i = 0; i < _LBEntries.Length; i++) 
+                {
+                    Destroy(_LBEntries[i]);
+                }
+                
                 // limpar a lista/array _LBEntries
-
+                Array.Clear(_LBEntries, 0, _LBEntries.Length);
 
                 // inicializar o array de linhas da tabela
                 _LBEntries = new GameObject[result.Leaderboard.Count];
