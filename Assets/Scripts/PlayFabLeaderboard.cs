@@ -14,22 +14,25 @@ public class PlayFabLeaderboard : MonoBehaviour
 
     private void Update()
     {
+        if(_LBTransform == null) 
+        {
         // Verifica se a cena atual é "create game" e busca o objeto "tabela"
-            GameObject tabelaObj = GameObject.Find("tabela");
+            GameObject tabelaObj = GameObject.Find("Tabela");
             if (tabelaObj != null)
             {
                 _LBTransform = tabelaObj.transform;
             }
             else
             {
-                Debug.LogWarning("[PlayFabLeaderboard] Objeto 'tabela' não encontrado na cena 'create game'.");
+               // Debug.LogWarning("[PlayFabLeaderboard] Objeto 'tabela' não encontrado na cena 'create game'.");
             }
+        }
     }
     public void RecuperarLeaderboard()
     {
         GetLeaderboardRequest request = new GetLeaderboardRequest
         {
-            StartPosition = 1,
+            StartPosition = 0,
             StatisticName = "vitorias",
             MaxResultsCount = 10
         };

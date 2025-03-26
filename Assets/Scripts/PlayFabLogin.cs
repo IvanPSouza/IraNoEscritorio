@@ -117,9 +117,12 @@ public class PlayFabLogin : MonoBehaviour
         // desabilita o painel de login
         loginPanel.SetActive(false);
 
+
         // captura do nickname
         PegaDisplayName(PlayFabID);
 
+        UpdateDisplayName(username);
+        
         if (result.EntityToken != null && result.EntityToken.Entity != null)
         {
             EntityID = result.EntityToken.Entity.Id;
@@ -244,5 +247,22 @@ public class PlayFabLogin : MonoBehaviour
             Nickname = result.PlayerProfile.DisplayName;
         },
         error => Debug.Log(error.ErrorMessage));
+    }
+
+    private void UpdateDisplayName(string displayName)
+    {
+        PlayFabClientAPI.UpdateUserTitleDisplayName(
+            new UpdateUserTitleDisplayNameRequest
+            {
+                DisplayName = displayName
+            },
+            (UpdateUserTitleDisplayNameResult result) =>
+            {
+                Debug.Log("Display name updated.");
+            },
+            (PlayFabError error) =>
+            {
+                Debug.LogError(error.GenerateErrorReport());
+            });
     }
 }
