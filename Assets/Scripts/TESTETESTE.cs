@@ -108,6 +108,8 @@ public class TESTETESTE : MonoBehaviourPunCallbacks
                 // Eu sou o vencedor
                 // Exibir tela de vitória ou realizar alguma ação
                 Debug.Log("VOCÊ VENCEU!");
+                PlayFabLeaderboard PFLeaderboard = FindObjectOfType<PlayFabLeaderboard>();
+                PFLeaderboard.UpdateLeaderboard();
                 SceneManager.LoadScene(Wscene);
                 //PhotonNetwork.Disconnect();
                 PhotonNetwork.LeaveRoom();

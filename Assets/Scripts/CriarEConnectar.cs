@@ -45,7 +45,7 @@ public class CriarEConectar : MonoBehaviourPunCallbacks
         if (Input.GetKeyUp(KeyCode.Tab))
         {
             PlayFabLeaderboard PFLeaderboard = FindObjectOfType<PlayFabLeaderboard>();
-            PFLeaderboard.UpdateLeaderboard();
+            //PFLeaderboard.UpdateLeaderboard();
             PFLeaderboard.RecuperarLeaderboard();
         }
     }
