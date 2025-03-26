@@ -15,8 +15,6 @@ public class PlayFabLeaderboard : MonoBehaviour
     private void Update()
     {
         // Verifica se a cena atual é "create game" e busca o objeto "tabela"
-        if (SceneManager.GetActiveScene().name == "create game")
-        {
             GameObject tabelaObj = GameObject.Find("tabela");
             if (tabelaObj != null)
             {
@@ -26,7 +24,6 @@ public class PlayFabLeaderboard : MonoBehaviour
             {
                 Debug.LogWarning("[PlayFabLeaderboard] Objeto 'tabela' não encontrado na cena 'create game'.");
             }
-        }
     }
     public void RecuperarLeaderboard()
     {
