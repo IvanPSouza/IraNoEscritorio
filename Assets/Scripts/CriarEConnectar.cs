@@ -8,7 +8,7 @@ using Photon.Realtime;
 using System;
 using Random = UnityEngine.Random;
 using WebSocketSharp;
-//using UnityEditor.VersionControl;
+using UnityEditor.VersionControl;
 
 
 public class CriarEConectar : MonoBehaviourPunCallbacks
